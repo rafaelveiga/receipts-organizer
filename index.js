@@ -11,9 +11,6 @@ function readDir(dir) {
       readDir(filePath);
     } else {
       fs.stat(filePath, (err, stats) => {
-        console.log(filePath);
-        console.log(stats);
-
         const newName = `${dayjs(stats.mtime).format("YYYY-MM-DD")}-${file}`;
 
         fs.copyFileSync(filePath, `./receipts/organized/${newName}`);
